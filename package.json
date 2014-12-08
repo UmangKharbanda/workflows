@@ -1,0 +1,10 @@
+{
+  "name": "Workflows",
+  "version": "0.0.1",
+  "description": "A project to showcase workflows",
+  "repository": {
+    "type": "git",
+    "url": "?.git"
+  },
+  "author": "Umang Kharbanda"
+}
