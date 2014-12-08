@@ -6,5 +6,9 @@
     "type": "git",
     "url": "?.git"
   },
-  "author": "Umang Kharbanda"
+  "author": "Umang Kharbanda",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-util": "^3.0.1"
+  }
 }
