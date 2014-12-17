@@ -4,6 +4,9 @@ var gulp = require('gulp'),
 	browserify = require('gulp-browserify'),
 	compass = require('gulp-compass'),
 	connect = require('gulp-connect'),
+	gulpif = require('gulp-if'),
+	uglify = require('gulp-uglify'),
+	minifyCSS = require('gulp-minify-css'),
 	concat = require('gulp-concat');
 
 // VARIABLES
@@ -51,6 +54,7 @@ gulp.task('js', function(){
 	gulp.src(jsSources)
 	.pipe(concat('script.js'))
 	.pipe(browserify())
+	.pipe(gulpif(env === 'production', uglify()))
 	.pipe(gulp.dest(outputDir + 'js'))
 	.pipe(connect.reload())
 });
@@ -62,6 +66,7 @@ gulp.task('compass' , function(){
 		image: outputDir + 'images',
 		style: sassStyle	
 	}))
+	.pipe(gulpif(env === 'production', minifyCSS({keepBrakes:true})))
 	.on('error', gutil.log)
 	.pipe(gulp.dest(outputDir + 'css'))
 	.pipe(connect.reload())
